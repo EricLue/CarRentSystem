@@ -19,8 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\CarRent\CarRent.csproj" />
-  </ItemGroup>
-
 </Project>
