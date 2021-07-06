@@ -10,38 +10,15 @@ namespace CarRent.CarManagement.Api
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarDto : ControllerBase
-    {
-        // GET: api/<CarDto>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+    public class CarDto
+    { 
+        public int Id { get; set; }
+        public string Name { get; set; }
 
-        // GET api/<CarDto>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        public CarDto(int id, string name)
         {
-            return "value";
-        }
-
-        // POST api/<CarDto>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<CarDto>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<CarDto>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            Id = id;
+            Name = name;
         }
     }
 }

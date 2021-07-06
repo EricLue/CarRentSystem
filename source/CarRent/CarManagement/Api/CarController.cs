@@ -16,7 +16,9 @@ namespace CarRent.CarManagement.Api
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            CarDto[] arr = new CarDto[1];
+
+            return arr;
         }
 
         // GET api/<CarController>/5
