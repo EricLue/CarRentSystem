@@ -8,11 +8,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CarManagement\Application\" />
-    <Folder Include="CarManagement\Domain\" />
-    <Folder Include="CarManagement\Infrastructure\" />
-    <Folder Include="Common\" />
-  </ItemGroup>
-
 </Project>
