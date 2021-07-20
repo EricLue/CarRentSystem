@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CarRent.Common.Infrastructure.DbContext
+namespace CarRent.Common.Mapper
 {
-    public class BaseDbContext
+    public class CustomerProfileMapper
     {
     }
 }

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CarRent.Common.Interfaces
+namespace CarRent.Common.Mapper
 {
-    public interface IEntity<T>
+    public class ReservationProfileMapper
     {
-        T Id { get; set; }
     }
 }

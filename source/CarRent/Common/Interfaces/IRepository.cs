@@ -5,7 +5,13 @@ using System.Threading.Tasks;
 
 namespace CarRent.Common.Interfaces
 {
-    public class IRepository
+    public interface IRepository<T, in TI>
     {
+        List<T> GetAllEntities();
+        List<T> FindEntityById(TI id);
+        void Insert(T entity);
+        void Update(T entity);
+        void Remove(T entity);
+        void RemoveById(Guid id);
     }
 }
