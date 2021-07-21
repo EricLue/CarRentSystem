@@ -9,6 +9,11 @@ namespace CarRent.Common.Infrastructure.Context
 {
     public class BaseDbContext : DbContext
     {
+        protected BaseDbContext()
+        {
+
+        }
+
         protected BaseDbContext(DbContextOptions options) : base(options)
         {
 

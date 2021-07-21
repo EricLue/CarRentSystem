@@ -4,39 +4,52 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarRent.Common.Interfaces;
 using CarRent.CarManagement.Domain;
+using CarRent.Common.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarRent.CarManagement.Infrastructure
 {
     public class CarClassRepository : IRepository<CarClass, Guid>
     {
-        List<CarClass> IRepository<CarClass, Guid>.FindEntityById(Guid id)
+        private readonly CarRentDbContext _carRentDbContext;
+
+        public CarClassRepository(CarRentDbContext carRentDbContext)
         {
-            throw new NotImplementedException();
+            _carRentDbContext = carRentDbContext;
         }
 
-        List<CarClass> IRepository<CarClass, Guid>.GetAllEntities()
+        public List<CarClass> FindEntityById(Guid id)
         {
-            throw new NotImplementedException();
+            return _carRentDbContext.CarClasses.Where(e => e.Id.Equals(id)).ToList();
         }
 
-        void IRepository<CarClass, Guid>.Insert(CarClass entity)
+        public List<CarClass> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return _carRentDbContext.CarClasses.ToList();
         }
 
-        void IRepository<CarClass, Guid>.Remove(CarClass entity)
+        public void Insert(CarClass entity)
         {
-            throw new NotImplementedException();
+            _carRentDbContext.Add(entity);
+            _carRentDbContext.SaveChanges();
         }
 
-        void IRepository<CarClass, Guid>.RemoveById(Guid id)
+        public void Remove(CarClass entity)
         {
-            throw new NotImplementedException();
+            Remove(entity);
+            _carRentDbContext.SaveChanges();
         }
 
-        void IRepository<CarClass, Guid>.Update(CarClass entity)
+        public void RemoveById(Guid id)
         {
-            throw new NotImplementedException();
+            RemoveById(id);
+            _carRentDbContext.SaveChanges();
+        }
+
+        public void Update(CarClass entity)
+        {
+            _carRentDbContext.Update(entity);
+            _carRentDbContext.SaveChanges();
         }
     }
 }

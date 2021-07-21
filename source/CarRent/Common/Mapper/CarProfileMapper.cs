@@ -12,7 +12,16 @@ namespace CarRent.Common.Mapper
     {
         public CarProfileMapper()
         {
-            CreateMap<Car, CarD
+            CreateMap<Car, CarDto>()
+                .ForMember(goal => goal.Class, extr => extr.MapFrom(src => src.Class.Type))
+                .ForMember(goal => goal.DailyPrice, extr => extr.MapFrom(src => src.Class.DailyPrice));
+
+            CreateMap<CarDto, Car>()
+                .ForMember(goal => goal.Class, extr => extr.Ignore());
+
+            CreateMap<CarClass, CarClassDto>();
+
+            CreateMap<CarClassDto, CarClass>();
         }
     }
 }

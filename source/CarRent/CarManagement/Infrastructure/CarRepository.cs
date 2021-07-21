@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarRent.Common.Interfaces;
-using CarRent.Common.Infrastructure.DbContext;
+using CarRent.Common.Infrastructure.Context;
 using CarRent.CarManagement.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarRent.CarManagement.Infrastructure
 {
@@ -16,34 +17,36 @@ namespace CarRent.CarManagement.Infrastructure
         {
             _carRentDbContext = carRentDbContext;
         }
-        List<Car> IRepository<Car, Guid>.FindEntityById(Guid id)
+        public List<Car> FindEntityById(Guid id)
         {
-            throw new NotImplementedException();
+            return _carRentDbContext.Cars.Include(e => e.Class).Where(e => e.Id.Equals(id)).ToList();
         }
 
-        List<Car> IRepository<Car, Guid>.GetAllEntities()
+        public List<Car> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return _carRentDbContext.Cars.ToList();
         }
 
-        void IRepository<Car, Guid>.Insert(Car entity)
+        public void Insert(Car entity)
         {
-            throw new NotImplementedException();
+            _carRentDbContext.Add(entity);
+            _carRentDbContext.SaveChanges();
         }
 
-        void IRepository<Car, Guid>.Remove(Car entity)
+        public void Remove(Car entity)
         {
-            throw new NotImplementedException();
+            Remove(entity);
         }
 
-        void IRepository<Car, Guid>.RemoveById(Guid id)
+        public void RemoveById(Guid id)
         {
-            throw new NotImplementedException();
+            RemoveById(id);
         }
 
-        void IRepository<Car, Guid>.Update(Car entity)
+        public void Update(Car entity)
         {
-            throw new NotImplementedException();
+            _carRentDbContext.Update(entity);
+            _carRentDbContext.SaveChanges();
         }
     }
 }

@@ -7,8 +7,8 @@ namespace CarRent.Common.Interfaces
 {
     public interface IRepository<T, in TI>
     {
-        List<T> GetAllEntities();
         List<T> FindEntityById(TI id);
+        List<T> GetAllEntities();
         void Insert(T entity);
         void Update(T entity);
         void Remove(T entity);
