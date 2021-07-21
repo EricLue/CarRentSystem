@@ -22,13 +22,13 @@ namespace CarRent.CustomerManagement.Domain
         [Required]
         public string Street { get; set; }
 
-        public int HouseNumber { get; set; }
+        public string HouseNumber { get; set; }
 
         [Required]
         public Guid PostalCodeId { get; set; }
 
         [Required]
-        public PostalCode postCode { get; set; }
+        public PostalCode PostCode { get; set; }
     }
 
     public enum Sex

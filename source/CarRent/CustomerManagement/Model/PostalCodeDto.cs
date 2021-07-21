@@ -2,22 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CarRent.Common.Interfaces;
-using System.ComponentModel.DataAnnotations;
 
-namespace CarRent.CustomerManagement.Domain
+namespace CarRent.CustomerManagement.Model
 {
-    public class PostalCode : IEntity<Guid>
+    public class PostalCodeDto
     {
         public Guid Id { get; set; }
-        
-        [Required]
+
         public string PostCode { get; set; }
 
-        [Required]
         public string City { get; set; }
 
-        [Required]
         public string Country { get; set; }
     }
 }
