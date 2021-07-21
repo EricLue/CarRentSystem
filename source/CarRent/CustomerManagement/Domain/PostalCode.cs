@@ -5,23 +5,19 @@ using System.Threading.Tasks;
 using CarRent.Common.Interfaces;
 using System.ComponentModel.DataAnnotations;
 
-namespace CarRent.CarManagement.Domain
+namespace CarRent.CustomerManagement.Domain
 {
-    public class CarClass : IEntity<Guid>
+    public class PostalCode : IEntity<Guid>
     {
         public Guid Id { get; set; }
+        
+        [Required]
+        public string PostCode { get; set; }
 
         [Required]
-        public ClassType Type { get; set; }
+        public string Town { get; set; }
 
         [Required]
-        public decimal DailyPrice { get; set; }
-    }
-
-    public enum ClassType
-    {
-        Luxury,
-        Medium,
-        Basic
+        public string Country { get; set; }
     }
 }
