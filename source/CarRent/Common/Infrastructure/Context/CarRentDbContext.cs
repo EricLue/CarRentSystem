@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using CarRent.CarManagement.Domain;
+using CarRent.CustomerManagement.Domain;
+using CarRent.ContractManagement.Domain;
 
 namespace CarRent.Common.Infrastructure.Context
 {
@@ -13,5 +15,17 @@ namespace CarRent.Common.Infrastructure.Context
 
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarClass> CarClasses { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<PostalCode> PostalCodes { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            ConfigureModelBinding<Car, Guid>(modelBuilder);
+            ConfigureModelBinding<CarClass, Guid>(modelBuilder);
+            ConfigureModelBinding<Customer, Guid>(modelBuilder);
+            ConfigureModelBinding<PostalCode, Guid>(modelBuilder);
+            ConfigureModelBinding<Contract, Guid>(modelBuilder);
+        }
     }
 }
