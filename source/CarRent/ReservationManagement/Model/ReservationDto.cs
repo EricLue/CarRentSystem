@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CarRent.ReservationManagement.Model
 {
-    public class ReervationDto
+    public class ReservationDto
     {
         public Guid Id { get; set; }
         public DateTime Start { get; set; }
