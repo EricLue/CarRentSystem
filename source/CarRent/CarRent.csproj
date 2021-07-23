@@ -11,10 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ContractManagement\Api\" />
-    <Folder Include="ContractManagement\Application\" />
-    <Folder Include="ContractManagement\Infrastructure\" />
-    <Folder Include="ContractManagement\Model\" />
+    <Folder Include="ReservationManagement\Api\" />
+    <Folder Include="ReservationManagement\Application\" />
+    <Folder Include="ReservationManagement\Infrastructure\" />
+    <Folder Include="ReservationManagement\Model\" />
   </ItemGroup>
 
 </Project>

@@ -7,9 +7,9 @@ using System.ComponentModel.DataAnnotations;
 using CarRent.CarManagement.Domain;
 using CarRent.CustomerManagement.Domain;
 
-namespace CarRent.ContractManagement.Domain
+namespace CarRent.ReservationManagement.Domain
 {
-    public class Contract : IEntity<Guid>
+    public class Reservation : IEntity<Guid>
     {
         public Guid Id { get; set; }
 
@@ -19,7 +19,7 @@ namespace CarRent.ContractManagement.Domain
         [Required]
         public DateTime End { get; set; }
 
-        public ContractState State { get; set; }
+        public ReservationState State { get; set; }
 
         public int DaysTotal
         {
@@ -48,7 +48,7 @@ namespace CarRent.ContractManagement.Domain
         public Customer Customer { get; set; }
     }
 
-    public enum ContractState
+    public enum ReservationState
     {
         Reserved,
         Rented
