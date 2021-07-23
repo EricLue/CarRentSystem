@@ -19,32 +19,34 @@ namespace CarRent.CustomerManagement.Infrastructure
 
         public List<PostalCode> FindEntityById(Guid id)
         {
-            throw new NotImplementedException();
+            return _carRentDbContext.PostalCodes.Where(e => e.Id.Equals(id)).ToList();
         }
 
         public List<PostalCode> GetAllEntities()
         {
-            throw new NotImplementedException();
+            return _carRentDbContext.PostalCodes.ToList();
         }
 
         public void Insert(PostalCode entity)
         {
-            throw new NotImplementedException();
+            _carRentDbContext.Add(entity);
+            _carRentDbContext.SaveChanges();
         }
 
         public void Remove(PostalCode entity)
         {
-            throw new NotImplementedException();
+            Remove(entity);
         }
 
         public void RemoveById(Guid id)
         {
-            throw new NotImplementedException();
+            RemoveById(id);
         }
 
         public void Update(PostalCode entity)
         {
-            throw new NotImplementedException();
+            _carRentDbContext.Update(entity);
+            _carRentDbContext.SaveChanges();
         }
     }
 }
