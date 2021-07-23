@@ -18,32 +18,32 @@ namespace CarRent.CustomerManagement.Application
 
         public void Add(Customer customer)
         {
-            throw new NotImplementedException();
+            _repository.Insert(customer);
         }
 
         public void Delete(Customer customer)
         {
-            throw new NotImplementedException();
+            _repository.Remove(customer);
         }
 
         public void DeleteById(Guid id)
         {
-            throw new NotImplementedException();
+            _repository.RemoveById(id);
         }
 
         public List<Customer> GetAllCustomers()
         {
-            throw new NotImplementedException();
+            return _repository.GetAllEntities();
         }
 
         public List<Customer> GetCustomerById(Guid id)
         {
-            throw new NotImplementedException();
+            return _repository.FindEntityById(id);
         }
 
         public void Update(Customer customer)
         {
-            throw new NotImplementedException();
+            _repository.Update(customer);
         }
     }
 }

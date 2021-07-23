@@ -18,32 +18,32 @@ namespace CarRent.CustomerManagement.Application
 
         public void Add(PostalCode postalCode)
         {
-            throw new NotImplementedException();
+            _repository.Insert(postalCode);
         }
 
         public void Delete(PostalCode postalCode)
         {
-            throw new NotImplementedException();
+            _repository.Remove(postalCode);
         }
 
         public void DeleteById(Guid id)
         {
-            throw new NotImplementedException();
+            _repository.RemoveById(id);
         }
 
         public List<PostalCode> GetAllCodes()
         {
-            throw new NotImplementedException();
+            return _repository.GetAllEntities();
         }
 
         public List<PostalCode> GetCodeById(Guid id)
         {
-            throw new NotImplementedException();
+            return _repository.FindEntityById(id);
         }
 
         public void Update(PostalCode postalCode)
         {
-            throw new NotImplementedException();
+            _repository.Update(postalCode);
         }
     }
 }

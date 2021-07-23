@@ -3,6 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarRent.CustomerManagement.Application;
+using CarRent.CustomerManagement.Model;
+using CarRent.CustomerManagement.Domain;
+using AutoMapper;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,36 +16,50 @@ namespace CarRent.CustomerManagement.Api
     [ApiController]
     public class CustomerController : ControllerBase
     {
+        private readonly IMapper _mapper;
+        private readonly ICustomerService _customerService;
+
+        public CustomerController(IMapper mapper, ICustomerService customerService)
+        {
+            _mapper = mapper;
+            _customerService = customerService;
+        }
+
         // GET: api/<CustomerController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<CustomerDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _customerService.GetAllCustomers().Select(customer => _mapper.Map<CustomerDto>(customer)).ToList();
         }
 
         // GET api/<CustomerController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public List<CustomerDto> Get(Guid id)
         {
-            return "value";
+            return _customerService.GetCustomerById(id).Select(customer => _mapper.Map<CustomerDto>(customer)).ToList();
         }
 
         // POST api/<CustomerController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] CustomerDto customerDto)
         {
+            var customer = _mapper.Map<Customer>(customerDto);
+            _customerService.Add(customer);
         }
 
         // PUT api/<CustomerController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] CustomerDto customerDto)
         {
+            var customer = _mapper.Map<Customer>(customerDto);
+            _customerService.Update(customer);
         }
 
         // DELETE api/<CustomerController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            _customerService.DeleteById(id);
         }
     }
 }
