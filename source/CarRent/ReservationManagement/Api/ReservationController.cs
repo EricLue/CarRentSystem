@@ -57,7 +57,7 @@ namespace CarRent.ReservationManagement.Api
         }
 
         // DELETE api/<ReservationController>/5
-        // [HttpDelete("{id}")]
+        [HttpDelete("{id}")]
         public void Delete(Guid id)
         {
             _reservationService.DeleteById(id);
