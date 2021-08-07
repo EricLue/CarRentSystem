@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarRent.Common.Interfaces;
 using CarRent.CustomerManagement.Domain;
-using CarRent.Common.Infrastructure.Context;
+using CarRent.CarManagement.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarRent.CustomerManagement.Infrastructure

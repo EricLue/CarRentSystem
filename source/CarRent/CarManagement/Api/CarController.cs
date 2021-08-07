@@ -49,7 +49,7 @@ namespace CarRent.CarManagement.Api
 
         // PUT api/<CarController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] CarDto carDto)
+        public void Put(Guid id, [FromBody] CarDto carDto)
         {
             var car = _mapper.Map<Car>(carDto);
             _carService.Update(car);

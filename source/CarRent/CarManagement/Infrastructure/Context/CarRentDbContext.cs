@@ -6,8 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using CarRent.CarManagement.Domain;
 using CarRent.CustomerManagement.Domain;
 using CarRent.ReservationManagement.Domain;
+using CarRent.Common.Infrastructure.Context;
 
-namespace CarRent.Common.Infrastructure.Context
+namespace CarRent.CarManagement.Infrastructure.Context
 {
     public class CarRentDbContext : BaseDbContext
     {

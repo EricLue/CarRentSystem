@@ -49,7 +49,7 @@ namespace CarRent.ReservationManagement.Api
 
         // PUT api/<ReservationController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] ReservationDto reservationDto)
+        public void Put(Guid id, [FromBody] ReservationDto reservationDto)
         {
             var reservation = _mapper.Map<Reservation>(reservationDto);
             _reservationService.Update(reservation);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarRent.Common.Interfaces;
-using CarRent.Common.Infrastructure.Context;
+using CarRent.CarManagement.Infrastructure.Context;
 using CarRent.ReservationManagement.Domain;
 using Microsoft.EntityFrameworkCore;
 

@@ -49,7 +49,7 @@ namespace CarRent.CustomerManagement.Api
 
         // PUT api/<CustomerController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] CustomerDto customerDto)
+        public void Put(Guid id, [FromBody] CustomerDto customerDto)
         {
             var customer = _mapper.Map<Customer>(customerDto);
             _customerService.Update(customer);

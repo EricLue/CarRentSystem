@@ -6,7 +6,7 @@ using CarRent.CarManagement.Domain;
 using CarRent.CarManagement.Model;
 using AutoMapper;
 
-namespace CarRent.Common.Mapper
+namespace CarRent.CarManagement.Mapper
 {
     public class CarProfileMapper : Profile 
     {
