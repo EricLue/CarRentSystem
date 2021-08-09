@@ -34,7 +34,7 @@ namespace CarRent.CustomerManagement.Api
 
         // GET api/<CustomerController>/5
         [HttpGet("{id}")]
-        public List<CustomerDto> Get(Guid id)
+        public List<CustomerDto> Get(int id)
         {
             return _customerService.GetCustomerById(id).Select(customer => _mapper.Map<CustomerDto>(customer)).ToList();
         }
@@ -49,7 +49,7 @@ namespace CarRent.CustomerManagement.Api
 
         // PUT api/<CustomerController>/5
         [HttpPut("{id}")]
-        public void Put(Guid id, [FromBody] CustomerDto customerDto)
+        public void Put(int id, [FromBody] CustomerDto customerDto)
         {
             var customer = _mapper.Map<Customer>(customerDto);
             _customerService.Update(customer);
@@ -57,7 +57,7 @@ namespace CarRent.CustomerManagement.Api
 
         // DELETE api/<CustomerController>/5
         [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
             _customerService.DeleteById(id);
         }

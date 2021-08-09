@@ -7,7 +7,7 @@ namespace CarRent.CustomerManagement.Model
 {
     public class PostalCodeDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string PostCode { get; set; }
 

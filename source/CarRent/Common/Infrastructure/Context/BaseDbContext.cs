@@ -26,9 +26,9 @@ namespace CarRent.Common.Infrastructure.Context
 
         private static void SetPrimaryKeys<TO, TI>(ModelBuilder modelBuilder) where TO : class
         {
-            if (typeof(IEntity<TI>).IsAssignableFrom(typeof(TO)))
+            if (typeof(IEntity).IsAssignableFrom(typeof(TO)))
             {
-                modelBuilder.Entity<TO>().HasKey(c => ((IEntity<TI>)c).Id);
+                modelBuilder.Entity<TO>().HasKey(c => ((IEntity)c).Id);
             }
         }
     }

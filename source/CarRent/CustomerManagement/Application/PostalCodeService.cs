@@ -26,7 +26,7 @@ namespace CarRent.CustomerManagement.Application
             _repository.Remove(postalCode);
         }
 
-        public void DeleteById(Guid id)
+        public void DeleteById(int id)
         {
             _repository.RemoveById(id);
         }
@@ -36,7 +36,7 @@ namespace CarRent.CustomerManagement.Application
             return _repository.GetAllEntities();
         }
 
-        public List<PostalCode> GetCodeById(Guid id)
+        public List<PostalCode> GetCodeById(int id)
         {
             return _repository.FindEntityById(id);
         }

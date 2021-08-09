@@ -7,9 +7,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarRent.CustomerManagement.Domain
 {
-    public class Customer : IEntity<Guid>
+    public class Customer : IEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public Sex Sex { get; set; }
 
@@ -25,7 +25,7 @@ namespace CarRent.CustomerManagement.Domain
         public string HouseNumber { get; set; }
 
         [Required]
-        public Guid PostalCodeId { get; set; }
+        public int PostalCodeId { get; set; }
 
         [Required]
         public PostalCode PostCode { get; set; }

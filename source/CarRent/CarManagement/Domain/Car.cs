@@ -7,12 +7,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarRent.CarManagement.Domain
 {
-    public class Car : IEntity<Guid>
+    public class Car : IEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        public Guid ClassId { get; set; }
+        public int ClassId { get; set; }
 
         public CarClass Class { get; set; }
 

@@ -18,7 +18,7 @@ namespace CarRent.CustomerManagement.Infrastructure
             _carRentDbContext = carRentDbContext;
         }
 
-        public List<Customer> FindEntityById(Guid id)
+        public List<Customer> FindEntityById(int id)
         {
             return _carRentDbContext.Customers.Include(e => e.PostCode).Where(e => e.Id.Equals(id)).ToList();
         }
@@ -39,7 +39,7 @@ namespace CarRent.CustomerManagement.Infrastructure
             Remove(entity);
         }
 
-        public void RemoveById(Guid id)
+        public void RemoveById(int id)
         {
             RemoveById(id);
         }

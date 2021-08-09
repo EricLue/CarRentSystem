@@ -34,7 +34,7 @@ namespace CarRent.ReservationManagement.Api
 
         // GET api/<ReservationController>/5
         [HttpGet("{id}")]
-        public List<ReservationDto> Get(Guid id)
+        public List<ReservationDto> Get(int id)
         {
             return _reservationService.GetReservationById(id).Select(reservation => _mapper.Map<ReservationDto>(reservation)).ToList();
         }
@@ -49,7 +49,7 @@ namespace CarRent.ReservationManagement.Api
 
         // PUT api/<ReservationController>/5
         [HttpPut("{id}")]
-        public void Put(Guid id, [FromBody] ReservationDto reservationDto)
+        public void Put(int id, [FromBody] ReservationDto reservationDto)
         {
             var reservation = _mapper.Map<Reservation>(reservationDto);
             _reservationService.Update(reservation);
@@ -58,7 +58,7 @@ namespace CarRent.ReservationManagement.Api
 
         // DELETE api/<ReservationController>/5
         [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
             _reservationService.DeleteById(id);
         }

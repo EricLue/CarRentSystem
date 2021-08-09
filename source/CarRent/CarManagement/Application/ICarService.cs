@@ -9,11 +9,11 @@ namespace CarRent.CarManagement.Application
     public interface ICarService
     {
         List<Car> GetAllCars();
-        List<Car> GetCarById(Guid id);
+        List<Car> GetCarById(int id);
         List<Car> GetCarByType(ClassType type);
         void Add(Car car);
         void Delete(Car car);
-        void DeleteById(Guid id);
+        void DeleteById(int id);
         void Update(Car car);
 
     }

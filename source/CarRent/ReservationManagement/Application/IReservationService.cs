@@ -9,10 +9,10 @@ namespace CarRent.ReservationManagement.Application
     public interface IReservationService
     {
         List<Reservation> GetAllReservations();
-        List<Reservation> GetReservationById(Guid id);
+        List<Reservation> GetReservationById(int id);
         void Add(Reservation reservation);
         void Delete(Reservation reservation);
-        void DeleteById(Guid id);
+        void DeleteById(int id);
         void Update(Reservation reservation);
     }
 }

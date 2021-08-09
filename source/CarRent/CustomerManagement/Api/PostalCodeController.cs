@@ -34,7 +34,7 @@ namespace CarRent.CustomerManagement.Api
 
         // GET api/<PostalCodeController>/5
         [HttpGet("{id}")]
-        public List<PostalCodeDto> Get(Guid id)
+        public List<PostalCodeDto> Get(int id)
         {
             return _postalCodeService.GetCodeById(id).Select(postalCode => _mapper.Map<PostalCodeDto>(postalCode)).ToList();
         }
@@ -49,7 +49,7 @@ namespace CarRent.CustomerManagement.Api
 
         // PUT api/<PostalCodeController>/5
         [HttpPut("{id}")]
-        public void Put(Guid id, [FromBody] PostalCodeDto postalCodeDto)
+        public void Put(int id, [FromBody] PostalCodeDto postalCodeDto)
         {
             var postalCode = _mapper.Map<PostalCode>(postalCodeDto);
             _postalCodeService.Update(postalCode);
@@ -57,7 +57,7 @@ namespace CarRent.CustomerManagement.Api
 
         // DELETE api/<PostalCodeController>/5
         [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
             _postalCodeService.DeleteById(id);
         }

@@ -26,7 +26,7 @@ namespace CarRent.CarManagement.Application
             _repository.Remove(carClass);
         }
 
-        public void DeleteById(Guid id)
+        public void DeleteById(int id)
         {
             _repository.RemoveById(id);
         }
@@ -36,7 +36,7 @@ namespace CarRent.CarManagement.Application
             return _repository.GetAllEntities();
         }
 
-        public List<CarClass> GetClassById(Guid id)
+        public List<CarClass> GetClassById(int id)
         {
             return _repository.FindEntityById(id);
         }

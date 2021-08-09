@@ -7,9 +7,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarRent.CustomerManagement.Domain
 {
-    public class PostalCode : IEntity<Guid>
+    public class PostalCode : IEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         
         [Required]
         public string PostCode { get; set; }

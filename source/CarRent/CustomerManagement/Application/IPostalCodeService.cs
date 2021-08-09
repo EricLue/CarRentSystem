@@ -9,10 +9,10 @@ namespace CarRent.CustomerManagement.Application
     public interface IPostalCodeService
     {
         List<PostalCode> GetAllCodes();
-        List<PostalCode> GetCodeById(Guid id);
+        List<PostalCode> GetCodeById(int id);
         void Add(PostalCode postalCode);
         void Delete(PostalCode postalCode);
-        void DeleteById(Guid id);
+        void DeleteById(int id);
         void Update(PostalCode postalCode);
     }
 }

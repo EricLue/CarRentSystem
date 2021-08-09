@@ -9,9 +9,9 @@ using CarRent.CustomerManagement.Domain;
 
 namespace CarRent.ReservationManagement.Domain
 {
-    public class Reservation : IEntity<Guid>
+    public class Reservation : IEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public DateTime Start { get; set; }
@@ -38,12 +38,12 @@ namespace CarRent.ReservationManagement.Domain
         }
 
         [Required]
-        public Guid CarId { get; set; }
+        public int CarId { get; set; }
 
         public Car Car { get; set; }
 
         [Required]
-        public Guid CustomerId { get; set; }
+        public int CustomerId { get; set; }
 
         public Customer Customer { get; set; }
     }

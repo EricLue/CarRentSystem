@@ -7,7 +7,7 @@ namespace CarRent.CustomerManagement.Model
 {
     public class CustomerDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string Sex { get; set; }
 
@@ -19,7 +19,7 @@ namespace CarRent.CustomerManagement.Model
 
         public string HouseNumber { get; set; }
 
-        public Guid PostalCodeId { get; set; }
+        public int PostalCodeId { get; set; }
 
         public string PostCode { get; set; }
 

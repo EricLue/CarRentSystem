@@ -18,7 +18,7 @@ namespace CarRent.ReservationManagement.Infrastructure
             _carRentDbContext = carRentDbContext;
         }
 
-        public List<Reservation> FindEntityById(Guid id)
+        public List<Reservation> FindEntityById(int id)
         {
             return _carRentDbContext.Reservations.Include(e => e.Car).Include(e => e.Customer).Where(e => e.Id.Equals(id)).ToList();
         }
@@ -39,7 +39,7 @@ namespace CarRent.ReservationManagement.Infrastructure
             Remove(entity);
         }
 
-        public void RemoveById(Guid id)
+        public void RemoveById(int id)
         {
             RemoveById(id);
         }

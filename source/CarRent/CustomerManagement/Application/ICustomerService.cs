@@ -9,10 +9,10 @@ namespace CarRent.CustomerManagement.Application
     public interface ICustomerService
     {
         List<Customer> GetAllCustomers();
-        List<Customer> GetCustomerById(Guid id);
+        List<Customer> GetCustomerById(int id);
         void Add(Customer customer);
         void Delete(Customer customer);
-        void DeleteById(Guid id);
+        void DeleteById(int id);
         void Update(Customer customer);
     }
 }

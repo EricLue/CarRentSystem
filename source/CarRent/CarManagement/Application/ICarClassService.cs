@@ -9,10 +9,10 @@ namespace CarRent.CarManagement.Application
     public interface ICarClassService
     {
         List<CarClass> GetAllClasses();
-        List<CarClass> GetClassById(Guid id);
+        List<CarClass> GetClassById(int id);
         void Add(CarClass carClass);
         void Delete(CarClass carClass);
-        void DeleteById(Guid id);
+        void DeleteById(int id);
         void Update(CarClass carClass);
     }
 }
