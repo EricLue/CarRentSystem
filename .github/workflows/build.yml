@@ -50,4 +50,4 @@ jobs:
           dotnet restore ./source
           dotnet build --no-restore ./source
           dotnet test --no-build --collect:"XPlat Code Coverage" --verbosity normal ./source -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN_CARRENT }}"
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
