@@ -1,4 +1,5 @@
 ﻿using CarRent.ReservationManagement.Domain;
+using CarRent.ReservationManagement.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace CarRent.ReservationManagement.Application
 {
     public class ReservationService : IReservationService
     {
-        private readonly IRepository<Reservation, Guid> _repository;
+        private readonly IReservationRepository _repository;
 
-        public ReservationService(IRepository<Reservation, Guid> repository)
+        public ReservationService(IReservationRepository reservationRepository)
         {
-            _repository = repository;
+            _repository = reservationRepository;
         }
 
         public void Add(Reservation reservation)
@@ -26,17 +27,29 @@ namespace CarRent.ReservationManagement.Application
             _repository.Remove(reservation);
         }
 
-        public void DeleteById(int id)
+        public void DeleteById(Guid id)
         {
-            _repository.RemoveById(id);
+            _repository.Remove(id);
         }
 
-        public List<Reservation> GetAllReservations()
+        public List<Reservation> GetAll()
         {
             return _repository.GetAllEntities();
         }
 
-        public List<Reservation> GetReservationById(int id)
+        public List<Reservation> GetReservationByCustomerId(Guid id)
+        {
+            return _repository.FindByCustomerId(id);
+        }
+
+
+        public List<Reservation> GetReservationByCarId(Guid id)
+        {
+            return _repository.FindByCarId(id);
+        }
+
+
+        public Reservation GetById(Guid id)
         {
             return _repository.FindEntityById(id);
         }

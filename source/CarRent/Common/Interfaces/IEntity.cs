@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CarRent.Common.Interfaces
 {
-    public interface IEntity
+    public interface IEntity<T>
     {
         [Key]
-        int Id { get; set; }
+        T Id { get; set; }
     }
 }

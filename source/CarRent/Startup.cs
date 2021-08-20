@@ -11,6 +11,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarRent.CarManagement.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
+using CarRent.CarManagement.Application;
+using CarRent.CarManagement.Infrastructure;
+using CarRent.CustomerManagement.Application;
+using CarRent.CustomerManagement.Infrastructure;
+using CarRent.ReservationManagement.Application;
+using CarRent.ReservationManagement.Infrastructure;
 
 namespace CarRent
 {
@@ -26,6 +34,23 @@ namespace CarRent
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CarRentDbContext>(settings =>
+            {
+                settings.UseSqlServer(Configuration.GetConnectionString("dbConnection"));
+            });
+
+            services.AddTransient<ICarService, CarService>();
+            services.AddScoped<ICarRepository, CarRepository>();
+
+            services.AddTransient<ICarClassService, CarClassService>();
+            services.AddScoped<ICarClassRepository, CarClassRepository>();
+
+            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+            services.AddTransient<IReservationService, ReservationService>();
+            services.AddScoped<IReservationRepository, ReservationRepository>();
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -9,47 +9,50 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarRent.CarManagement.Infrastructure
 {
-    public class CarClassRepository : IRepository<CarClass, Guid>
+    public class CarClassRepository : ICarClassRepository
     {
-        private readonly CarRentDbContext _carRentDbContext;
+        private readonly CarRentDbContext _dbContext;
 
         public CarClassRepository(CarRentDbContext carRentDbContext)
         {
-            _carRentDbContext = carRentDbContext;
+            _dbContext = carRentDbContext;
         }
 
-        public List<CarClass> FindEntityById(int id)
+        public CarClass FindEntityById(Guid id)
         {
-            return _carRentDbContext.CarClasses.Where(e => e.Id.Equals(id)).ToList();
+            return _dbContext.CarClasses.Select(cl => cl).Where(cl => cl.Id.Equals(id)).FirstOrDefault();
         }
 
         public List<CarClass> GetAllEntities()
         {
-            return _carRentDbContext.CarClasses.ToList();
+            return _dbContext.CarClasses.Select(cl => cl).ToList();
         }
 
         public void Insert(CarClass entity)
         {
-            _carRentDbContext.Add(entity);
-            _carRentDbContext.SaveChanges();
+            _dbContext.Add(entity);
+            _dbContext.SaveChanges();
         }
 
         public void Remove(CarClass entity)
         {
-            Remove(entity);
-            _carRentDbContext.SaveChanges();
+            Remove(entity.Id);
         }
 
-        public void RemoveById(int id)
+        public void Remove(Guid id)
         {
-            RemoveById(id);
-            _carRentDbContext.SaveChanges();
+            var isNotNull = FindEntityById(id);
+            if (isNotNull != null)
+            {
+                _dbContext.CarClasses.Remove(isNotNull);
+                _dbContext.SaveChanges();
+            }
         }
 
         public void Update(CarClass entity)
         {
-            _carRentDbContext.Update(entity);
-            _carRentDbContext.SaveChanges();
+            _dbContext.Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }

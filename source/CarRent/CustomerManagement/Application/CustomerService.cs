@@ -4,16 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarRent.Common.Interfaces;
 using CarRent.CustomerManagement.Domain;
+using CarRent.CustomerManagement.Infrastructure;
 
 namespace CarRent.CustomerManagement.Application
 {
     public class CustomerService : ICustomerService
     {
-        private readonly IRepository<Customer, Guid> _repository;
+        private readonly ICustomerRepository _repository;
 
-        public CustomerService(IRepository<Customer, Guid> repository)
+        public CustomerService(ICustomerRepository customerRepository)
         {
-            _repository = repository;
+            _repository = customerRepository;
         }
 
         public void Add(Customer customer)
@@ -26,17 +27,17 @@ namespace CarRent.CustomerManagement.Application
             _repository.Remove(customer);
         }
 
-        public void DeleteById(int id)
+        public void DeleteById(Guid id)
         {
-            _repository.RemoveById(id);
+            _repository.Remove(id);
         }
 
-        public List<Customer> GetAllCustomers()
+        public List<Customer> GetAll()
         {
             return _repository.GetAllEntities();
         }
 
-        public List<Customer> GetCustomerById(int id)
+        public Customer GetById(Guid id)
         {
             return _repository.FindEntityById(id);
         }

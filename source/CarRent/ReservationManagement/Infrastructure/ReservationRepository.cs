@@ -9,29 +9,39 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarRent.ReservationManagement.Infrastructure
 {
-    public class ReservationRepository : IRepository<Reservation, Guid>
+    public class ReservationRepository : IReservationRepository
     {
-        private readonly CarRentDbContext _carRentDbContext;
+        private readonly CarRentDbContext _dbContext;
 
         public ReservationRepository(CarRentDbContext carRentDbContext)
         {
-            _carRentDbContext = carRentDbContext;
+            _dbContext = carRentDbContext;
         }
 
-        public List<Reservation> FindEntityById(int id)
+        public Reservation FindEntityById(Guid id)
         {
-            return _carRentDbContext.Reservations.Include(e => e.Car).Include(e => e.Customer).Where(e => e.Id.Equals(id)).ToList();
+            return _dbContext.Reservations.Select(r => r).Where(r => r.Id.Equals(id)).FirstOrDefault();
+        }
+
+        public List<Reservation> FindByCustomerId(Guid id)
+        {
+            return _dbContext.Reservations.Select(r => r).Where(r => r.CustomerId.Equals(id)).ToList();
+        }
+
+        public List<Reservation> FindByCarId (Guid id)
+        {
+            return _dbContext.Reservations.Select(r => r).Where(r => r.CarId.Equals(id)).ToList();
         }
 
         public List<Reservation> GetAllEntities()
         {
-            return _carRentDbContext.Reservations.Include(e => e.Car).Include(e => e.Customer).ToList();
+            return _dbContext.Reservations.Select(r => r).ToList();
         }
 
         public void Insert(Reservation entity)
         {
-            _carRentDbContext.Add(entity);
-            _carRentDbContext.SaveChanges();
+            _dbContext.Add(entity);
+            _dbContext.SaveChanges();
         }
 
         public void Remove(Reservation entity)
@@ -39,15 +49,20 @@ namespace CarRent.ReservationManagement.Infrastructure
             Remove(entity);
         }
 
-        public void RemoveById(int id)
+        public void Remove(Guid id)
         {
-            RemoveById(id);
+            var isNotNull = FindEntityById(id);
+            if (isNotNull != null)
+            {
+                _dbContext.Reservations.Remove(isNotNull);
+                _dbContext.SaveChanges();
+            }
         }
 
         public void Update(Reservation entity)
         {
-            _carRentDbContext.Update(entity);
-            _carRentDbContext.SaveChanges();
+            _dbContext.Reservations.Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }

@@ -18,22 +18,16 @@ namespace CarRent.CarManagement.Infrastructure.Context
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarClass> CarClasses { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<PostalCode> PostalCodes { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         #endregion
-        /*
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=.; Database=CarRent_DB; Trusted_Connection=True");
-        }
-        */
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            ConfigureModelBinding<Car, Guid>(modelBuilder);
-            ConfigureModelBinding<CarClass, Guid>(modelBuilder);
-            ConfigureModelBinding<Customer, Guid>(modelBuilder);
-            ConfigureModelBinding<PostalCode, Guid>(modelBuilder);
-            ConfigureModelBinding<Reservation, Guid>(modelBuilder);
+            modelBuilder.Entity<Car>().ToTable("CarRent_Cars");
+            modelBuilder.Entity<CarClass>().ToTable("CarRent_CarClasses");
+            modelBuilder.Entity<Customer>().ToTable("CarRent_Customers");
+            modelBuilder.Entity<Reservation>().ToTable("CarRent_Reservations");
+
             /*
             #region List of City
             var postcodes = new List<PostalCode>

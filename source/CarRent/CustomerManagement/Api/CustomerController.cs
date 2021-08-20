@@ -16,12 +16,10 @@ namespace CarRent.CustomerManagement.Api
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly IMapper _mapper;
         private readonly ICustomerService _customerService;
 
-        public CustomerController(IMapper mapper, ICustomerService customerService)
+        public CustomerController(ICustomerService customerService)
         {
-            _mapper = mapper;
             _customerService = customerService;
         }
 
@@ -29,35 +27,66 @@ namespace CarRent.CustomerManagement.Api
         [HttpGet]
         public List<CustomerDto> Get()
         {
-            return _customerService.GetAllCustomers().Select(customer => _mapper.Map<CustomerDto>(customer)).ToList();
+            var customer = _customerService.GetAll();
+            return customer.Select(customer => new CustomerDto()
+            {
+                Id = customer.Id,
+                Firstname = customer.Firstname,
+                Familyname = customer.Familyname,
+                Street = customer.Street,
+                HouseNumber = customer.HouseNumber
+            }).ToList();
         }
 
         // GET api/<CustomerController>/5
         [HttpGet("{id}")]
-        public List<CustomerDto> Get(int id)
+        public CustomerDto Get(Guid id)
         {
-            return _customerService.GetCustomerById(id).Select(customer => _mapper.Map<CustomerDto>(customer)).ToList();
+            var customer = _customerService.GetById(id);
+            return new CustomerDto()
+            {
+                Id = customer.Id,
+                Firstname = customer.Firstname,
+                Familyname = customer.Familyname,
+                Street = customer.Street,
+                HouseNumber = customer.HouseNumber,
+            };
         }
 
         // POST api/<CustomerController>
         [HttpPost]
         public void Post([FromBody] CustomerDto customerDto)
         {
-            var customer = _mapper.Map<Customer>(customerDto);
+            var customer = new Customer()
+            {
+                Id = Guid.NewGuid(),
+                Firstname = customerDto.Firstname,
+                Familyname = customerDto.Familyname,
+                Street = customerDto.Street,
+                HouseNumber = customerDto.HouseNumber
+            };
+
             _customerService.Add(customer);
         }
 
         // PUT api/<CustomerController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] CustomerDto customerDto)
+        public void Put(Guid id, [FromBody] CustomerDto customerDto)
         {
-            var customer = _mapper.Map<Customer>(customerDto);
+            var customer = new Customer()
+            {
+                Id = id,
+                Firstname = customerDto.Firstname,
+                Familyname = customerDto.Familyname,
+                Street = customerDto.Street,
+                HouseNumber = customerDto.HouseNumber
+            };
             _customerService.Update(customer);
         }
 
         // DELETE api/<CustomerController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             _customerService.DeleteById(id);
         }

@@ -9,44 +9,49 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarRent.CarManagement.Infrastructure
 {
-    public class CarRepository : IRepository<Car, Guid>
+    public class CarRepository : ICarRepository
     {
-        private readonly CarRentDbContext _carRentDbContext;
+        private readonly CarRentDbContext _dbContext;
 
         public CarRepository(CarRentDbContext carRentDbContext)
         {
-            _carRentDbContext = carRentDbContext;
+            _dbContext = carRentDbContext;
         }
-        public List<Car> FindEntityById(int id)
+        public Car FindEntityById(Guid id)
         {
-            return _carRentDbContext.Cars.Include(e => e.Class).Where(e => e.Id.Equals(id)).ToList();
+            return _dbContext.Cars.Include(e => e.Class).Where(c => c.Id.Equals(id)).FirstOrDefault();
         }
 
         public List<Car> GetAllEntities()
         {
-            return _carRentDbContext.Cars.ToList();
+            return _dbContext.Cars.Select(e => e).Include(e => e.Class).ToList();
         }
 
         public void Insert(Car entity)
         {
-            _carRentDbContext.Add(entity);
-            _carRentDbContext.SaveChanges();
+            _dbContext.Cars.Add(entity);
+            _dbContext.SaveChanges();
         }
 
         public void Remove(Car entity)
         {
-            Remove(entity);
+            Remove(entity.Id);
         }
 
-        public void RemoveById(int id)
+        public void Remove(Guid id)
         {
-            RemoveById(id);
+            var isNotNull = FindEntityById(id);
+            if (isNotNull != null)
+            {
+                _dbContext.Cars.Remove(isNotNull);
+                _dbContext.SaveChanges();
+            }
         }
 
         public void Update(Car entity)
         {
-            _carRentDbContext.Update(entity);
-            _carRentDbContext.SaveChanges();
+            _dbContext.Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }

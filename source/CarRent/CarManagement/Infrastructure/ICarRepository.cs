@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarRent.Common.Interfaces;
 using CarRent.CarManagement.Domain;
-using CarRent.Common.Application;
 
-namespace CarRent.CarManagement.Application
+namespace CarRent.CarManagement.Infrastructure
 {
-    public interface ICarClassService : IService<CarClass>
+    public interface ICarRepository : IRepository<Car>
     {
-
     }
 }

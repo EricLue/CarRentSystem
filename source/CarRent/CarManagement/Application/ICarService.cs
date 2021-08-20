@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarRent.CarManagement.Domain;
+using CarRent.Common.Application;
 
 namespace CarRent.CarManagement.Application
 {
-    public interface ICarService
+    public interface ICarService : IService<Car>
     {
-        List<Car> GetAllCars();
-        List<Car> GetCarById(int id);
-        List<Car> GetCarByType(ClassType type);
-        void Add(Car car);
-        void Delete(Car car);
-        void DeleteById(int id);
-        void Update(Car car);
 
     }
 }

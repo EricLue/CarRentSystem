@@ -7,9 +7,7 @@ namespace CarRent.CustomerManagement.Model
 {
     public class CustomerDto
     {
-        public int Id { get; set; }
-
-        public string Sex { get; set; }
+        public Guid Id { get; set; }
 
         public string Firstname { get; set; }
 
@@ -19,12 +17,12 @@ namespace CarRent.CustomerManagement.Model
 
         public string HouseNumber { get; set; }
 
-        public int PostalCodeId { get; set; }
+        //public int PostalCodeId { get; set; }
 
-        public string PostCode { get; set; }
+        //public string PostCode { get; set; }
 
-        public string City { get; set; }
+        //public string City { get; set; }
 
-        public string Country { get; set; }
+        //public string Country { get; set; }
     }
 }

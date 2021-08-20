@@ -7,7 +7,7 @@ namespace CarRent.CarManagement.Model
 {
     public class CarClassDto
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Type { get; set; }
         public decimal DailyPrice { get; set; }
     }

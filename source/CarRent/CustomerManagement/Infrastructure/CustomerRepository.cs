@@ -9,45 +9,50 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarRent.CustomerManagement.Infrastructure
 {
-    public class CustomerRepository : IRepository<Customer, Guid>
+    public class CustomerRepository : ICustomerRepository
     {
-        private readonly CarRentDbContext _carRentDbContext;
+        private readonly CarRentDbContext _dbContext;
 
         public CustomerRepository(CarRentDbContext carRentDbContext)
         {
-            _carRentDbContext = carRentDbContext;
+            _dbContext = carRentDbContext;
         }
 
-        public List<Customer> FindEntityById(int id)
+        public Customer FindEntityById(Guid id)
         {
-            return _carRentDbContext.Customers.Include(e => e.PostCode).Where(e => e.Id.Equals(id)).ToList();
+            return _dbContext.Customers.Select(ct => ct).Where(ct => ct.Id.Equals(id)).FirstOrDefault();
         }
 
         public List<Customer> GetAllEntities()
         {
-            return _carRentDbContext.Customers.ToList();
+            return _dbContext.Customers.Select(ct => ct).ToList();
         }
 
         public void Insert(Customer entity)
         {
-            _carRentDbContext.Add(entity);
-            _carRentDbContext.SaveChanges();
+            _dbContext.Customers.Add(entity);
+            _dbContext.SaveChanges();
         }
 
         public void Remove(Customer entity)
         {
-            Remove(entity);
+            Remove(entity.Id);
         }
 
-        public void RemoveById(int id)
+        public void Remove(Guid id)
         {
-            RemoveById(id);
+            var isNotNull = FindEntityById(id);
+            if (isNotNull != null)
+            {
+                _dbContext.Customers.Remove(isNotNull);
+                _dbContext.SaveChanges();
+            }
         }
 
         public void Update(Customer entity)
         {
-            _carRentDbContext.Update(entity);
-            _carRentDbContext.SaveChanges();
+            _dbContext.Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarRent.Common.Interfaces;
 using CarRent.CustomerManagement.Domain;
-using CarRent.Common.Application;
 
-namespace CarRent.CustomerManagement.Application
+namespace CarRent.CustomerManagement.Infrastructure
 {
-    public interface ICustomerService : IService<Customer>
+    public interface ICustomerRepository : IRepository<Customer>
     {
 
     }

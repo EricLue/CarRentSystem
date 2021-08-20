@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarRent.Common.Interfaces;
+using CarRent.CarManagement.Infrastructure;
 
 namespace CarRent.CarManagement.Application
 {
     public class CarClassService : ICarClassService
     {
-        private readonly IRepository<CarClass, Guid> _repository;
+        private readonly ICarClassRepository _repository;
 
-        public CarClassService(IRepository<CarClass, Guid> repository)
+        public CarClassService(ICarClassRepository carClassRepository)
         {
-            _repository = repository;
+            _repository = carClassRepository;
         }
 
         public void Add(CarClass carClass)
@@ -26,17 +27,17 @@ namespace CarRent.CarManagement.Application
             _repository.Remove(carClass);
         }
 
-        public void DeleteById(int id)
+        public void DeleteById(Guid id)
         {
-            _repository.RemoveById(id);
+            _repository.Remove(id);
         }
 
-        public List<CarClass> GetAllClasses()
+        public List<CarClass> GetAll()
         {
             return _repository.GetAllEntities();
         }
 
-        public List<CarClass> GetClassById(int id)
+        public CarClass GetById(Guid id)
         {
             return _repository.FindEntityById(id);
         }

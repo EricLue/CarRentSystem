@@ -9,9 +9,9 @@ using CarRent.CustomerManagement.Domain;
 
 namespace CarRent.ReservationManagement.Domain
 {
-    public class Reservation : IEntity
+    public class Reservation
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public DateTime Start { get; set; }
@@ -19,33 +19,29 @@ namespace CarRent.ReservationManagement.Domain
         [Required]
         public DateTime End { get; set; }
 
-        public ReservationState State { get; set; }
+        public string State { get; set; }
 
-        public int DaysTotal
-        {
-            get
-            {
-                if (Start < End)
-                {
-                    var total = End - Start;
-                    return total.Days;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-        }
-
-        [Required]
-        public int CarId { get; set; }
-
-        public Car Car { get; set; }
+        //public int DaysTotal
+        //{
+        //    get
+        //    {
+        //        if (Start < End)
+        //        {
+        //            var total = End - Start;
+        //            return total.Days;
+        //        }
+        //        else
+        //        {
+        //            return 0;
+        //        }
+        //    }
+        //}
 
         [Required]
-        public int CustomerId { get; set; }
+        public Guid CarId { get; set; }
 
-        public Customer Customer { get; set; }
+        [Required]
+        public Guid CustomerId { get; set; }
     }
 
     public enum ReservationState
