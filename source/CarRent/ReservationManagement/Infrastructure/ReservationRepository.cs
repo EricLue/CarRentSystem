@@ -46,7 +46,7 @@ namespace CarRent.ReservationManagement.Infrastructure
 
         public void Remove(Reservation entity)
         {
-            Remove(entity);
+            Remove(entity.Id);
         }
 
         public void Remove(Guid id)
