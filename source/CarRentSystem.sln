@@ -4,8 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRent.Tests", "tests\CarRent.Tests\CarRent.Tests.csproj", "{F22B9CE6-EBF6-45CA-85D4-CE0A4FFEA1F7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EA048B29-ABCA-46C9-97E2-E3AE77F8E6AD} = {EA048B29-ABCA-46C9-97E2-E3AE77F8E6AD}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRent", "CarRent\CarRent.csproj", "{EA048B29-ABCA-46C9-97E2-E3AE77F8E6AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRent", "CarRent\CarRent.csproj", "{EA048B29-ABCA-46C9-97E2-E3AE77F8E6AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
