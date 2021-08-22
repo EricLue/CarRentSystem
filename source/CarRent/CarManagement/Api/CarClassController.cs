@@ -76,7 +76,7 @@ namespace CarRent.CarManagement.Api
             if (carClass != null)
             {
                 carClass.Id = carClassDto.Id;
-                carClass.Type = carClass.Type;
+                carClass.Type = carClassDto.Type;
                 carClass.DailyPrice = carClassDto.DailyPrice;
 
                 _carClassService.Add(carClass);
