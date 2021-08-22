@@ -1,6 +1,20 @@
 # CarRentSystem
 
-# CarRent_ZbW
+## **Quality Gate**
+
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=EricLue_CarRentSystem&metric=ncloc)](https://sonarcloud.io/dashboard?id=EricLue_CarRentSystem)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=EricLue_CarRentSystem&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=EricLue_CarRentSystem)
+
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=EricLue_CarRentSystem&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=EricLue_CarRentSystem)
+
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=EricLue_CarRentSystem&metric=security_rating)](https://sonarcloud.io/dashboard?id=EricLue_CarRentSystem)
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=EricLue_CarRentSystem&metric=bugs)](https://sonarcloud.io/dashboard?id=EricLue_CarRentSystem)
+
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=EricLue_CarRentSystem&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=EricLue_CarRentSystem)
+
+
 
 Testat Software_Architektur_und_Design
 
