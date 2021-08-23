@@ -22,21 +22,19 @@
 
 ### Context
 
-![Context](C:\Users\ericm\Documents\10_Studium\4_SEM\SOFT_ARCHITEKTUR_DESIGN\Testat\Modelle\C4\Context.png)
+![Context](./docs/Context.png)
 
 
 
 ### Container
 
-![Container](C:\Users\ericm\Documents\10_Studium\4_SEM\SOFT_ARCHITEKTUR_DESIGN\Testat\Modelle\C4\Container.png)
+![Container](./docs/Container.png)
 
-### Component![Components](C:\Users\ericm\Documents\10_Studium\4_SEM\SOFT_ARCHITEKTUR_DESIGN\Testat\Modelle\C4\Component.png)
+### Component![Components](./docs/Component.png)
 
 
 
-## Domain Model and Use Cases
-
-![DomainModel](C:\Users\ericm\Documents\10_Studium\4_SEM\SOFT_ARCHITEKTUR_DESIGN\Testat\mkdocs\docs\DomainModel.jpg)
+## Domain Model and Use Cases![DomainModel](./docs\DomainModel.jpg)
 
 | ROLE           | GOAL                                                         | REASON                                                       |
 | :------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -50,7 +48,7 @@
 
 ## 4+1 Views
 
-### Deployment View![Deployment_View](C:\Users\ericm\Documents\10_Studium\4_SEM\SOFT_ARCHITEKTUR_DESIGN\Testat\Modelle\Views\Deployment_View.png)
+### Deployment View  [Deployment_View.drawio](docs\Deployment_View.drawio) 
 
 ### Logical View
 
