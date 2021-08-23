@@ -1,3 +1,5 @@
+
+
 # CarRentSystem
 
 ## **Quality Gate**
@@ -16,31 +18,25 @@
 
 
 
-Testat Software_Architektur_und_Design
+## **Big Picture / Vision**
 
-4.1.1 Context
+### Context
 
-4.1.2 Containers
-
-4.1.3 Components
-
-4.1.4 Classes
+![Context](C:\Users\ericm\Documents\10_Studium\4_SEM\SOFT_ARCHITEKTUR_DESIGN\Testat\Modelle\C4\Context.png)
 
 
 
-4.2 Big Picture
+### Container
+
+![Container](C:\Users\ericm\Documents\10_Studium\4_SEM\SOFT_ARCHITEKTUR_DESIGN\Testat\Modelle\C4\Container.png)
+
+### Component![Components](C:\Users\ericm\Documents\10_Studium\4_SEM\SOFT_ARCHITEKTUR_DESIGN\Testat\Modelle\C4\Component.png)
 
 
 
-
-
-5.1 Domain Model
+## Domain Model and Use Cases
 
 ![DomainModel](C:\Users\ericm\Documents\10_Studium\4_SEM\SOFT_ARCHITEKTUR_DESIGN\Testat\mkdocs\docs\DomainModel.jpg)
-
-
-
-5.1 Use Cases
 
 | ROLE           | GOAL                                                         | REASON                                                       |
 | :------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -51,3 +47,11 @@ Testat Software_Architektur_und_Design
 | Sachbearbeiter | Tagesgebühr pro Auto festlegen                               | Transparenz gegenüber dem Kunden gewährleisten und auf aktuelle Nachfrage reagieren |
 | Kunde          | Kunde kann Reservation tätigen, indem bestimmte Klasse ausgewählt und Start- sowie Enddatum gesetzt wird | Gesamtkosten können errechnet und Reservationsnummer festgelegt werden |
 | Kunde          | Kunde holt Auto ab                                           | Reservation wird in gültigen Mietvertrag umgewandelt         |
+
+## 4+1 Views
+
+### Deployment View![Deployment_View](C:\Users\ericm\Documents\10_Studium\4_SEM\SOFT_ARCHITEKTUR_DESIGN\Testat\Modelle\Views\Deployment_View.png)
+
+### Logical View
+
+### Implementation View
