@@ -9,27 +9,32 @@ using CarRent.CarManagement.Domain;
 using CarRent.CarManagement.Infrastructure.Context;
 using Microsoft.Data.SqlClient;
 
-namespace CarRent.Tests.CarManagement.Infrastructure
+namespace CarRent.Tests.CarManagement
 {
     public class DatabaseFixture : IDisposable
     {
-        private static readonly object _lock = new object();
         private static bool _dbInitialized;
+        private static readonly object _inhibit = new object();
 
         public DatabaseFixture()
         {
             Connection = new SqlConnection(@"Data Source=.; Database=CarRentSystem_XUnit_Tests; Trusted_Connection=True");
 
-            Seed();
+            Begin();
 
             Connection.Open();
         }
 
         public DbConnection Connection { get; }
 
-        private void Seed()
+        public void Dispose()
         {
-            lock (_lock)
+            Connection.Dispose();
+        }
+
+        private void Begin()
+        {
+            lock (_inhibit)
             {
                 if (!_dbInitialized)
                 {
@@ -74,11 +79,6 @@ namespace CarRent.Tests.CarManagement.Infrastructure
             }
 
             return context;
-        }
-
-        public void Dispose()
-        {
-            Connection.Dispose();
         }
     }
 }

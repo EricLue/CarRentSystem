@@ -7,7 +7,7 @@ using Xunit;
 using CarRent.CarManagement.Infrastructure;
 using CarRent.CarManagement.Domain;
 
-namespace CarRent.Tests.CarManagement.Infrastructure
+namespace CarRent.Tests.CarManagement
 {
     public class CarRentTests : IClassFixture<DatabaseFixture>
     {
