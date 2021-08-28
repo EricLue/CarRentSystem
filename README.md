@@ -34,7 +34,7 @@
 
 
 
-## Domain Model and Use Cases![DomainModel](./docs\DomainModel.jpg)
+## Domain Model and Use Cases![](./docs/DomainModel.png)
 
 | ROLE           | GOAL                                                         | REASON                                                       |
 | :------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -50,19 +50,19 @@
 
 ### Deployment View
 
-![](./docs\Deployment_View.png)
+![](./docs/Deployment_View.png)
 
 ### Logical View
 
-![](./docs\Logical_View-Customer.png)
+![](./docs/Logical_View-Customer.png)
 
-![](./docs\Logical_View-Car.png)
+![](./docs/Logical_View-Car.png)
 
-![](./docs\Logical_View-CarClass.png)
+![](./docs/Logical_View-CarClass.png)
 
-![](./docs\Logical_View-Reservation.png)
+![](./docs/Logical_View-Reservation.png)
 
 ### Implementation View
 
-![](C:\visual\SOFTWARE_ARCH_DESIGN\CarRentSystem\docs\Implementation_View.drawio.svg)
+![](./docs/Implementation_View.drawio.svg)
 
