@@ -48,8 +48,21 @@
 
 ## 4+1 Views
 
-### Deployment View  [Deployment_View.drawio](docs\Deployment_View.drawio) 
+### Deployment View
+
+![](./docs\Deployment_View.png)
 
 ### Logical View
 
+![](./docs\Logical_View-Customer.png)
+
+![](./docs\Logical_View-Car.png)
+
+![](./docs\Logical_View-CarClass.png)
+
+![](./docs\Logical_View-Reservation.png)
+
 ### Implementation View
+
+![](C:\visual\SOFTWARE_ARCH_DESIGN\CarRentSystem\docs\Implementation_View.drawio.svg)
+
